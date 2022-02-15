@@ -1,0 +1,4 @@
+Thing Data Mass-kg
+Sputnik-1  4-oct-1957 83.6
+Sputnik-2  3-nov-1957 508.3
+Explorer-1  1-feb-1958 21.5
