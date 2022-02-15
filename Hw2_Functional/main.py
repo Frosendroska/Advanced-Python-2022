@@ -2,6 +2,7 @@ from GeneratorOfFibAST import main
 
 from datetime import datetime
 import os
+import sys
 import functools
 
 from typing import List
@@ -40,7 +41,7 @@ def generate_latex_footer():
     return "\\end{document}"
 
 
-in_file_with_table = str(input())
+in_file_with_table = str(sys.argv[1])
 
 # открываем файл
 with open(in_file_with_table, 'r') as sourse:
