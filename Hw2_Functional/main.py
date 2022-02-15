@@ -1,4 +1,5 @@
-import numpy
+from GeneratorOfFibAST import main
+
 from datetime import datetime
 import os
 import functools
@@ -31,6 +32,10 @@ def generate_latex_header(title: str, author: str, date: str) -> str:
             "\\maketitle\n\n")
 
 
+def make_image(img_path, scale) -> str:
+    return f"\\includegraphics[scale={scale}]{{{img_path}}}\n"
+
+
 def generate_latex_footer():
     return "\\end{document}"
 
@@ -48,7 +53,8 @@ with open(in_file_with_table, 'r') as sourse:
     with open('artifacts/your-table.tex', 'w') as f:
         f.write(generate_latex_header("Here you can see the array in latex", "Braun Kate", str(datetime.now().date())))
         f.write(make_latex_from_array(lines))
-        # f.write(insert_image("ast.png", 0.22))
+        main.main()
+        f.write(make_image("ast.png", 0.22))
         f.write(generate_latex_footer())
 
         sourse.close()
