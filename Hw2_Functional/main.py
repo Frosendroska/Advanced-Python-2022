@@ -54,7 +54,7 @@ with open(in_file_with_table, 'r') as sourse:
         f.write(generate_latex_header("Here you can see the array in latex", "Braun Kate", str(datetime.now().date())))
         f.write(make_latex_from_array(lines))
         main.main()
-        f.write(make_image("ast.png", 0.22))
+        f.write(make_image("artifacts/AstTree.png", 0.22))
         f.write(generate_latex_footer())
 
         sourse.close()
