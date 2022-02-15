@@ -34,7 +34,10 @@ def generate_latex_header(title: str, author: str, date: str) -> str:
 
 
 def make_image(img_path, scale) -> str:
-    return f"\\includegraphics[scale={scale}]{{{img_path}}}\n"
+    return ("\\begin{center}"
+            f"\\includegraphics[scale={scale}]{{{img_path}}}\n"
+            "\\end{center}"
+            )
 
 
 def generate_latex_footer():
