@@ -16,11 +16,11 @@ class Matrix:
     _cash = {}
 
     def __hash__(self) -> int:
-        sum = 0
+        hsum = 0
         for r in range(len(self.val)):
             for c in range(len(self.val[r])):
-                sum += self.val[r][c]
-        return int(sum % (10 ** 9 + 7))
+                hsum += self.val[r][c]
+        return int(hsum % (10 ** 9 + 7))
 
     def __init__(self, matrix):
         self.val = matrix
