@@ -1,1 +1,0 @@
-Hash AB and hash CD are equal to 22
