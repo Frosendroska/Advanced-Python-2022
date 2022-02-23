@@ -13,12 +13,25 @@ class MatrixException(Exception):
 
 
 class Matrix:
+    _cash = {}
+
+    def __hash__(self) -> int:
+        sum = 0
+        for r in range(len(self.val)):
+            for c in range(len(self.val[r])):
+                sum += self.val[r][c]
+        return int(sum % (10 ** 9 + 7))
+
     def __init__(self, matrix):
         self.val = matrix
         self.n = len(matrix)
         self.m = len(matrix[0])
 
-    def __add__(self, other):
+    @classmethod
+    def invalidate_caches(cls):
+        cls._cash = {}
+
+    def __add__(self, other) -> 'Matrix':
         try:
             if self.n != other.m:
                 raise MatrixException(self.n, self.m, other.n, other.m)
@@ -30,24 +43,25 @@ class Matrix:
             return c
         except MatrixException as e:
             print(e)
-            return None
 
-    def __matmul__(self, other):
+    def __matmul__(self, other) -> 'Matrix':
         try:
             if self.m != other.m or self.n != other.n:
                 raise MatrixException(self.n, self.m, other.n, other.m)
 
-            c = Matrix([[0 for _ in range(self.n)] for _ in range(self.m)])
-            for i in range(self.n):
-                for j in range(other.m):
-                    for k in range(other.m):
-                        c.val[i][j] += self.val[i][k] * other.val[k][j]
-            return c
+            cur_key = hash(self), hash(other)
+            if cur_key not in self._cash:
+                c = Matrix([[0 for _ in range(self.n)] for _ in range(self.m)])
+                for i in range(self.n):
+                    for j in range(other.m):
+                        for k in range(other.m):
+                            c.val[i][j] += self.val[i][k] * other.val[k][j]
+                return c
+            return self._cash[cur_key]
         except MatrixException as e:
             print(e)
-            return None
 
-    def __mul__(self, other):
+    def __mul__(self, other) -> 'Matrix':
         try:
             if self.m != other.m or self.n != other.n:
                 raise MatrixException(self.n, self.m, other.n, other.m)
@@ -59,7 +73,6 @@ class Matrix:
             return c
         except MatrixException as e:
             print(e)
-            return None
 
     def __str__(self) -> str:
         s = str()
