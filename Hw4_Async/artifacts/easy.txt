@@ -1,27 +1,27 @@
-Synchronous time:	0.00023818016052246094
-Threads time:		0.0014739036560058594
-Process time:		0.26593995094299316
+Synchronous time:	0.00017595291137695312
+Threads time:		0.0009698867797851562
+Process time:		0.5140290260314941
 >
-The fastest:		0.00023818016052246094
-The slowest:		0.26593995094299316
+The fastest:		0.00017595291137695312
+The slowest:		0.5140290260314941
 
 ------------------------------------------
 
-Synchronous time:	0.046029090881347656
-Threads time:		0.00096893310546875
-Process time:		0.23282814025878906
+Synchronous time:	0.06737828254699707
+Threads time:		0.0010330677032470703
+Process time:		0.5061638355255127
 >
-The fastest:		0.00096893310546875
-The slowest:		0.23282814025878906
+The fastest:		0.0010330677032470703
+The slowest:		0.5061638355255127
 
 ------------------------------------------
 
-Synchronous time:	0.046029090881347656
-Threads time:		0.00096893310546875
-Process time:		0.23282814025878906
+Synchronous time:	4.933580160140991
+Threads time:		0.0009291172027587891
+Process time:		0.3151710033416748
 >
-The fastest:		0.00096893310546875
-The slowest:		0.23282814025878906
+The fastest:		0.0009291172027587891
+The slowest:		4.933580160140991
 
 ------------------------------------------
 
